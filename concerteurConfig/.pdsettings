@@ -1,0 +1,19 @@
+audioapi: 1
+noaudioin: False
+audioindev1: 0 2
+audioindevname1: bcm2835 ALSA (hardware)
+noaudioout: False
+audiooutdev1: 0 2
+audiooutdevname1: bcm2835 ALSA (hardware)
+audiobuf: 25
+rate: 22050
+callback: 0
+blocksize: 64
+nomidiin: True
+nomidiout: True
+npath: 0
+standardpath: 1
+verbose: 0
+nloadlib: 0
+defeatrt: 0
+flags: 
