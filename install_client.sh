@@ -8,7 +8,7 @@ sudo apt-get update
 sudo apt-get install -y pd vim python3 python-virtualenv python3-pip
 
 # ==== récupérer les sources du client
-git clone https://github.com/e-lie/concerteur_client /home/pi
+git clone https://github.com/e-lie/Le_concerteur /home/pi
 
 # ==== config pure data
 sudo cp /home/pi/concerteurConfig/rc.local /etc/
