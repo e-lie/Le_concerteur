@@ -15,8 +15,8 @@ mkdir "$install_dir"
 git clone https://github.com/e-lie/Le_concerteur "$install_dir"
 
 # ==== config pure data
-sudo cp "$install_dir/concerteurConfig/rc.local" "/etc/"
-cp "$install_dir/concerteurConfig/.pdsettings" /home/pi
+sudo cp -f "$install_dir/concerteurConfig/rc.local" "/etc/"
+cp -f "$install_dir/concerteurConfig/.pdsettings" /home/pi
 
 mv ${install_dir}/pdwiringPi-master /home/pi
 mv ${install_dir}/concerteurClient /home/pi
@@ -44,5 +44,7 @@ cronjob="* * * * * $croncmd"
 
 # command to remove the cronjob ( crontab -l | grep -v -F "$croncmd" ) | crontab -
 
+rm -R ${install_dir}
+sudo reboot
 
 
