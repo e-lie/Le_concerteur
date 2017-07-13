@@ -31,7 +31,7 @@ sudo cp -Rf ${install_dir}/ffmpeg/lib/* /usr/lib/arm-linux-gnueabihf/
 sudo pip3 install pydub
 
 # ==== config python script
-sudo sed -i "s@SERVERURL@$serverurl@g" /home/pi/concerteurClient/polling.py
+sed -i "s@SERVERURL@$serverurl@g" /home/pi/concerteurClient/polling.py
 
 # ==== ajouter le cron
 croncmd="/usr/bin/python3 /home/pi/concerteurClient/polling.py &> /home/pi/concerteurClient/sounds/cronlog"
