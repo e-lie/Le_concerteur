@@ -1,24 +1,25 @@
 #!/bin/bash
 
-serverurl="https://pharmakonpc.fr"
+serverurl=$1
 install_dir="/home/pi/concerteur_client"
+repo="https://github.com/e-lie/Le_concerteur"
 
 
 # ==== installer pure data, python etc
 sudo apt-get update
-sudo apt-get install -y pd vim python3 python3-pip
+sudo apt-get install -y pd python3 python3-pip
 sudo pip3 install pydub
 
 mkdir "$install_dir"
 
 # ==== récupérer les sources du client
-git clone https://github.com/e-lie/Le_concerteur "$install_dir"
+git clone ${repo} ${install_dir}
 
 # ==== config pure data
-sudo cp -f "$install_dir/concerteurConfig/rc.local" "/etc/"
-cp -f "$install_dir/concerteurConfig/.pdsettings" /home/pi
+sudo cp -f "$install_dir/concerteurConfig/rc.local" /etc/
+sudo cp -f "$install_dir/concerteurConfig/.pdsettings" /root/
 
-mv ${install_dir}/pdwiringPi-master /home/pi
+mv ${install_dir}/concerteurPureData /home/pi
 mv ${install_dir}/concerteurClient /home/pi
 touch /home/pi/pdlog
 
@@ -30,7 +31,7 @@ sudo cp -Rf ${install_dir}/ffmpeg/lib/* /usr/lib/arm-linux-gnueabihf/
 sudo pip3 install pydub
 
 # ==== config python script
-sudo sed -i "s@SERVERURL@$serverurl@g" ${install_dir}/concerteurClient/polling.py
+sudo sed -i "s@SERVERURL@$serverurl@g" /home/pi/concerteurClient/polling.py
 
 # ==== ajouter le cron
 croncmd="/usr/bin/python3 /home/pi/concerteurClient/polling.py &> /home/pi/concerteurClient/sounds/cronlog"
@@ -44,7 +45,7 @@ cronjob="* * * * * $croncmd"
 
 # command to remove the cronjob ( crontab -l | grep -v -F "$croncmd" ) | crontab -
 
-rm -R ${install_dir}
+rm -Rf ${install_dir}
 sudo reboot
 
 
