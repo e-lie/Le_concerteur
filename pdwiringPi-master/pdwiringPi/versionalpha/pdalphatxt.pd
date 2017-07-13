@@ -1,0 +1,26 @@
+#N canvas 288 77 1366 661 10;
+#X obj 134 535 r deuxieme;
+#X floatatom 108 255 20 0 0 0 - - -, f 20;
+#X floatatom 132 588 20 0 0 0 - - -, f 20;
+#X obj 282 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 247 245 qlist;
+#X text 102 142 charger le fichier;
+#X floatatom 270 581 20 0 0 0 - - -, f 20;
+#X obj 272 528 r nimportequoi;
+#X obj 90 20 inlet;
+#X text 114 207 declencher lecture;
+#X obj 110 336 outlet;
+#X text 105 281 nombre contrib;
+#X text 102 120 reload;
+#X obj 107 231 r nbcontrib;
+#X msg 246 143 read /home/pi/concerteurClient/sounds/params.txt;
+#X connect 0 0 2 0;
+#X connect 1 0 10 0;
+#X connect 3 0 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 14 0;
+#X connect 13 0 1 0;
+#X connect 14 0 4 0;
+#X connect 14 0 3 0;
+#X coords 0 -1 1 1 300 200 1 100 100;

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 serverurl="https://pharmakonpc.fr"
-
 install_dir="/home/pi/concerteur_client"
 
 
@@ -18,6 +17,10 @@ git clone https://github.com/e-lie/Le_concerteur "$install_dir"
 # ==== config pure data
 sudo cp "$install_dir/concerteurConfig/rc.local" "/etc/"
 cp "$install_dir/concerteurConfig/.pdsettings" /home/pi
+
+mv ${install_dir}/pdwiringPi-master /home/pi
+mv ${install_dir}/concerteurClient /home/pi
+touch /home/pi/pdlog
 
 # ==== install ffmpeg
 sudo cp "$install_dir/ffmpeg/ffmpeg" /usr/local/bin/
