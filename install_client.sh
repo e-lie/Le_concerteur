@@ -5,7 +5,7 @@ serverurl="https://pharmakonpc.fr"
 
 # ==== installer pure data, python etc
 sudo apt-get update
-sudo apt-get install -y pd vim python3 python-virtualenv python3-pip
+sudo apt-get install -y pd vim python3 python3-virtualenv python3-pip
 
 # ==== récupérer les sources du client
 git clone https://github.com/e-lie/Le_concerteur /home/pi
@@ -20,9 +20,12 @@ ln -s /usr/bin/ffmpeg /usr/bin/ffmpeg
 cp -Rf /home/pi/ffmpeg/lib/* /usr/lib/arm-linux-gnueabihf/
 
 # ===== python part
-virtualenv -p python3 /home/pi/concerteurClient/venv
-source /home/pi/concerteurClient/.env
-pip3 install -r /home/pi/concerteurClient/requirements.txt
+#virtualenv -p python3 /home/pi/concerteurClient/venv
+#source /home/pi/concerteurClient/.env
+#pip3 install -r /home/pi/concerteurClient/requirements.txt
+
+sudo apt-get install python-parse
+
 
 # ==== config python script
 sudo sed -i "s@SERVERURL@$serverurl@g" /home/pi/concerteurClient/polling.py
