@@ -17,17 +17,13 @@ def get_sound_list():
     with open(SOUND_DIR+LAST, 'r') as f:
         filename = f.readline()
         params = {'lastFilename':filename}
-        print(filename)
         # Encode the query string
         querystring = urllib.parse.urlencode(params)
-        print(querystring)
 
         # Make a POST request and read the response
         resp = request.urlopen(url, querystring.encode('utf-8'))
-        print(resp)
         #read bytes from the JSON response and convert it to string (decode) then dictionnary (json.loads)
         jsondata = resp.read().decode('utf-8')
-        print(jsondata)
         return json.loads(jsondata)
         
 def get_sound(filename):
