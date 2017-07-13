@@ -2,33 +2,32 @@
 
 serverurl="https://pharmakonpc.fr"
 
+install_dir="/home/pi/concerteur_client"
+
 
 # ==== installer pure data, python etc
 sudo apt-get update
-sudo apt-get install -y pd vim python3 python3-virtualenv python3-pip
+sudo apt-get install -y pd vim python3 python3-pip
+sudo pip3 install pydub
+
+mkdir "$install_dir"
 
 # ==== récupérer les sources du client
-git clone https://github.com/e-lie/Le_concerteur /home/pi
+git clone https://github.com/e-lie/Le_concerteur "$install_dir"
 
 # ==== config pure data
-sudo cp /home/pi/concerteurConfig/rc.local /etc/
-cp /home/pi/concerteurConfig/.pdsettings /home/pi/
+sudo cp "$install_dir/concerteurConfig/rc.local" "/etc/"
+cp "$install_dir/concerteurConfig/.pdsettings" /home/pi
 
 # ==== install ffmpeg
-cp /home/pi/ffmpeg/ffmpeg /usr/local/bin/
-ln -s /usr/bin/ffmpeg /usr/bin/ffmpeg
-cp -Rf /home/pi/ffmpeg/lib/* /usr/lib/arm-linux-gnueabihf/
+sudo cp "$install_dir/ffmpeg/ffmpeg" /usr/local/bin/
+sudo ln -s /usr/bin/ffmpeg /usr/bin/ffmpeg
+sudo cp -Rf ${install_dir}/ffmpeg/lib/* /usr/lib/arm-linux-gnueabihf/
 
-# ===== python part
-#virtualenv -p python3 /home/pi/concerteurClient/venv
-#source /home/pi/concerteurClient/.env
-#pip3 install -r /home/pi/concerteurClient/requirements.txt
-
-sudo apt-get install python-parse
-
+sudo pip3 install pydub
 
 # ==== config python script
-sudo sed -i "s@SERVERURL@$serverurl@g" /home/pi/concerteurClient/polling.py
+sudo sed -i "s@SERVERURL@$serverurl@g" ${install_dir}/concerteurClient/polling.py
 
 # ==== ajouter le cron
 croncmd="/usr/bin/python3 /home/pi/concerteurClient/polling.py &> /home/pi/concerteurClient/sounds/cronlog"

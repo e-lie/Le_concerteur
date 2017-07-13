@@ -2,14 +2,13 @@
 
 from urllib import request
 import urllib
-import parse
 import json
 import os
 from glob import glob
 from pydub import AudioSegment
 
 SERVER_URL="SERVERURL"
-SOUND_DIR="/home/pi/concerteurClient/sounds/"
+SOUND_DIR="/home/pi/concerteur_client/concerteurClient/sounds/"
 LAST = 'last_file_name.txt'
 
 def get_sound_list():
