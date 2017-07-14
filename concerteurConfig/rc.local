@@ -17,6 +17,6 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-sudo pd -nogui /home/pi/concerteurPureData/build/versionalpha/buttonalpha.pd &> /home/pi/pdlog
+sudo pd -nogui /home/pi/concerteurPureData/build/versionalpha/buttonalpha.pd >> /home/pi/pd_concerteur.log 2>&1
 
 exit 0

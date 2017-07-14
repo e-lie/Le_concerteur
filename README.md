@@ -8,9 +8,20 @@ dose de compréhension du projet est nécessaire pour pouvoir faire sens de ces 
 
 ## Installation du serveur
 
-* avoir un serveur et un nom de domaine
+* avoir un serveur et un nom de domaine (par exemple une vm digitalocean)
 * installer debian stable dessus
 * installer yunohost : https://yunohost.org/#/install_manually_fr
+* faire la post installation : ```yunohost tools postinstall```
+   * entrer le nom de domaine
+   * définir un mdp pour l'administrateur Yunohost
+* ajouter un utilisateur :
+   * visitez l'adresse ```nomdedomaine.fr/yunohost/admin```
+   * allez dans `Utilisateurs` et cliquer sur  `+ Nouvel Utilisateur`
+* installer l'application concerteur en ssh : `yunohost app install https://github.com/e-lie/concerteur_ynh`
+   * choisir un emplacement (par défaut `/concerteur`)
+   * choisir votre nom de domaine
+   * choisir un utilisateur 
+* visitez
 
 
 ## Installation du client

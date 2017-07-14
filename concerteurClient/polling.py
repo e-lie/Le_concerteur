@@ -45,7 +45,6 @@ def convert_sounds_to_wav(new_files):
         mp3_path = SOUND_DIR+mp3_filename
 	
         mp3seg = AudioSegment.from_mp3(mp3_path)
-        print(mp3seg.frame_rate)
         mp3seg.export("{}{}.wav".format(SOUND_DIR,file_number), format="wav")
     
     with open(SOUND_DIR+'params.txt', 'w') as f:

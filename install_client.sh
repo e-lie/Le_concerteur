@@ -21,7 +21,8 @@ sudo cp -f "$install_dir/concerteurConfig/.pdsettings" /root/
 
 mv ${install_dir}/concerteurPureData /home/pi
 mv ${install_dir}/concerteurClient /home/pi
-touch /home/pi/pdlog
+touch /home/pi/pd_concerteur.log
+touch /home/pi/polling_concerteur.log
 
 # ==== install ffmpeg
 sudo cp "$install_dir/ffmpeg/ffmpeg" /usr/local/bin/
@@ -34,7 +35,7 @@ sudo pip3 install pydub
 sed -i "s@SERVERURL@$serverurl@g" /home/pi/concerteurClient/polling.py
 
 # ==== ajouter le cron
-croncmd="/usr/bin/python3 /home/pi/concerteurClient/polling.py &> /home/pi/concerteurClient/sounds/cronlog"
+croncmd="sudo -u pi /usr/bin/python3 /home/pi/concerteurClient/polling.py >> /home/pi/polling_concerteur.log 2>&1"
 cronjob="* * * * * $croncmd"
 
 # ajouter au cron root
