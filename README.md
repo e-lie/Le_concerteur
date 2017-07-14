@@ -1,14 +1,25 @@
 
-# Le concerteur client
+# Le concerteur
 
 
 L'objet des instructions et des scripts qui vont suivre est au maximum d'automatiser l'installation d'un serveur et
 d'un client raspberry Pi pour le projet "le concerteur". Cependant, il n'est pas garanti qu'ils soient exhaustifs et une certaine
 dose de compréhension du projet est nécessaire pour pouvoir faire sens de ces instructions.
 
+## clarifier quelques informations
+
+ * choisir un nom de domaine : exp leconcerteur.fr
+ * choisir un nom d'utilisateur
+ * définir un mot de passe et mettre le même partout
+
 ## Installation du serveur
 
-* avoir un serveur et un nom de domaine (par exemple une vm digitalocean)
+* avoir un serveur et un nom de domaine
+   * commander un VPS avec Debian Jessie ou installer Debian sur un ordinateur connecté à votre box/routeur
+   * aller par exemple acheter un nom de domaine ovh.com ou autre
+   * une fois le domaine acheté, allez dans l'interface d'administration > zone DNS et faire pointer votre domaine sur le serveur
+      * ajouter un champ de type A: votre domaine -> ip de votre serveur (à récupérer dans l'interface d'admin du VPS)
+      * ajouter un champ de type MX10 cf : 
 * installer debian stable dessus
 * installer yunohost : https://yunohost.org/#/install_manually_fr
 * faire la post installation : ```yunohost tools postinstall```
