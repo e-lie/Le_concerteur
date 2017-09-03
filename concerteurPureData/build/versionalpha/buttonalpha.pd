@@ -1,4 +1,4 @@
-#N canvas 234 297 1366 686 10;
+#N canvas 233 303 1366 686 10;
 #X obj 98 124 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X floatatom 214 206 5 0 0 0 - - -, f 5;
@@ -13,7 +13,7 @@
 #X obj 377 6 loadbang;
 #X msg 384 102 \; pd dsp 0;
 #X msg 440 36 \; pd dsp 1;
-#X obj 277 542 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 277 542 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X floatatom 285 591 5 0 0 0 - - -, f 5;
 #X obj 285 625 sel 0 1;
