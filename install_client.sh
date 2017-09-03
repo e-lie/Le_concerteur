@@ -7,7 +7,7 @@ repo="https://github.com/e-lie/Le_concerteur"
 
 # ==== installer pure data, python etc
 sudo apt-get update
-sudo apt-get install -y pd python3 python3-pip
+sudo apt-get install -y pd puredata-gui python3 python3-pip
 sudo pip3 install pydub
 
 mkdir "$install_dir"
