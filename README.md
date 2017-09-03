@@ -60,7 +60,15 @@ lorsque la session est lancée, ouvrir un terminal puis passer à l'installation
 * ajouter un fichier vide nommé `ssh` dans la partition boot de la carte SD flashée (pour pouvoir s'y connecter en ssh sans écran)
 * brancher le raspi avec la carte dedans et connecté en ethernet(RJ45) à votre box/routeur ou lancer le raspi connecté à un écran
 * ouvrir un terminal sur votre ordinateur mac/linux
-* pour trouver la 
+* trouvez l'adresse IP locale du raspberry pi (par exemple avec nmap ou arp-scan)
+* se connecter en ssh : `ssh pi@<adresse ip>`
+* mdp `raspberry`
 
+### installation automatique du client
 
-installer pd vim
+* dans le terminal
+* télécharger le script d'installation : `wget https://raw.githubusercontent.com/e-lie/Le_concerteur/master/install_client.sh`
+* le rendre executable : `chmod +x install_client.sh`
+* lancer le script avec en argument l'adresse du serveur (par exemple https://concerteur.net/concerteur) : `./install_client.sh <adresse https du serveur>`
+* à la fin de l'installation le raspi reboote et devrait émettre une note longue à la fin du démarrage
+* la synchronisation devrait être automatique !
